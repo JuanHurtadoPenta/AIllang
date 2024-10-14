@@ -1,0 +1,11 @@
+1) Crear la carpeta del proyecto y el entorno virtual.
+python -m venv Lang
+.\Lang\Scripts\activate
+2)instala dependencias
+3) desarrollar y testear el proyecto
+4) realizar documento de  requerimientos
+ pip freeze > requirements.txt      
+5) realizar el dockerfile
+6) subir el repositorio
+
+#extras :streamlit run c_front_end.py  
