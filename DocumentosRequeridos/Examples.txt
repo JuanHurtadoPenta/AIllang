@@ -1,163 +1,163 @@
 [
    {
         "input": "Consultar las VENTAS NETAS del año 2023 de inmot",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_selector, sal_sen_nombre, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
+    },
+    {
+        "input": "Consultar las VENTAS NETAS del año 2023 de inmot por mes",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_mes, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_mes"
     },
     {
         "input": "Consultar las Ventas Brutas del año 2023 de tecnocyclo",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_selector, sal_sen_nombre, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%ventas brutas%' AND sal_periodo = 2023 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%ventas brutas%' AND sal_periodo = 2023 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado"
     },
     {
         "input": "Consultar las Devoluciones del año 2023 de la empresa honda.",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%indumot%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%devoluciones%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%honda%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%devoluciones%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Consultar las COSTO DE VENTAS del año 2024 del cluster de motos",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%costo de ventas%' AND sal_periodo = 2024 AND sal_tipo = 1 AND lower(sal_sector) LIKE '%motos%'"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%costo de ventas%' AND sal_periodo = 2024 AND sal_tipo = 1 AND lower(sal_sector) LIKE '%motos%' GROUP BY sal_periodo, sal_nombre, sal_tipo_estado"
     },
     {
         "input": "Consultar las UTILIDADES BRUTAS del año 2024 para el mes de enero de la empresa tecnocyclo.",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad bruta%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad bruta%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado"
     },
     {
         "input": "Consultar las GASTOS OPERACIONALES del año 2024 para el cluster de motos.",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_acumulado_nac, sal_acumulado_ext, sal_mes FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%gastos operacionales%' AND sal_periodo = 2024 AND sal_tipo = 1 AND lower(sal_sector) LIKE '%motos%'"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%gastos operacionales%' AND sal_periodo = 2024 AND sal_tipo = 1 AND lower(sal_sector) LIKE '%motos%' GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_mes"
     },
     {
         "input": "Consultar las UTILIDAD OPERACIONAL del año 2024",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad operacional%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad operacional%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
     },
     {
         "input": "Consultar las OTROS NO OPERACIONALES del año 2024 para la empresa inmot de febrero",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 2 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%otros no operacionales%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 2 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%otros no operacionales%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
     },
     {
         "input": "Consultar las UTILIDAD ANTES DE IMPUESTOS Y PROYECTOS del año 2024.",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad antes de impuestos y proyectos%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad antes de impuestos y proyectos%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
     },
     {
         "input": "Consultar las UTILIDAD ANTES DE IMPUESTOS del año 2023 de la empresa tecnocyclo",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_periodo = 2023 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_periodo = 2023 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
     },
     {
         "input": "Consultar las UTILIDAD NETA del año 2024 para el cluster de MOTOS",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad neta%' AND sal_tipo = 1 AND lower(sal_sector) LIKE '%motos%'"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad neta%' AND sal_tipo = 1 AND lower(sal_sector) LIKE '%motos%' GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
     },
     {
         "input": "Consultar las EBITDA del año 2024 del tercer mes del año, para inmot",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_periodo = 2024 AND sal_mes = 3 AND lower(sal_nombre) LIKE '%ebitda%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_periodo = 2024 AND sal_mes = 3 AND lower(sal_nombre) LIKE '%ebitda%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Quiero el valor EBITDA de COSMICA CIA LTDA para enero 2024",
-        "query":"SELECT sal_nombre, sal_tipo_estado, sal_valor_nac, sal_valor_ext,sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%cosmica%' AND lower(sal_nombre) LIKE '%ebitda%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%cosmica%' AND lower(sal_nombre) LIKE '%ebitda%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Cuál es el valor acumulado y equivalente acumulado de enero 2024 de inmot",
-        "query": "SELECT sal_nombre,sal_tipo_estado, sal_acumulado_nac, sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%efectivo y equivalentes%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%efectivo y equivalentes%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado"
     },
     {
         "input": "Cuánto es el valor de ventas netas de enero 2024 de la empresa tecnocyclo",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%ventas netas%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%ventas netas%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%tecnocyclo%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Dame el ERI de todo enero 2024 de la empresa honda detallado",
-        "query": "SELECT sal_nombre,sal_tipo_estado,sal_tipo_estado, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%indumot%' AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%indumot%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Cuáles son los valores de inventarios en tránsito de enero 2024 en la base de datos",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%inventarios en transito%' AND sal_mes = 1 AND sal_periodo = 2024 AND sal_tipo = 1"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%inventarios en transito%' AND sal_mes = 1 AND sal_periodo = 2024 AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
-        "input": "Quiero los datos de ERI de todo febrero 2024 de la empresa honda ",
-        "query": "SELECT sal_nombre,sal_tipo_estado, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 2 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%indumot%' AND lower(sal_nombre) LIKE '%ventas brutas%' AND sal_tipo = 1"
+        "input": "Quiero los datos de ERI de todo febrero 2024 de la empresa honda",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 2 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%indumot%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
-        "input": "Quiero los datos de ERI de todo febrero 2024 de la empresa inmot para venta neta",
-        "query": "SELECT sal_nombre, sal_tipo_estado,sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%inmot%' AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1"
+        "input": " datos de ERI de todo febrero 2024 de la empresa inmot para venta neta",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ERI' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%inmot%' AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
-        "input": "Quiero el valor de cuentas por cobrar de la empresa honda en enero de 2024",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%indumot%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%cuentas por cobrar%' AND sal_tipo = 1"
+        "input": "valor de cuentas por cobrar de la empresa honda en enero de 2024",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%indumot%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%cuentas por cobrar%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
-        "input": "Quiero saber el balance general de la empresa inmot para enero de 2024",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_valor_nac, sal_valor_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ESF' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%inmot%' AND sal_tipo = 1"
+        "input": " el balance general de la empresa inmot para enero de 2024",
+        "query": "SELECT sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ESF' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%inmot%' AND sal_tipo = 1 GROUP BY sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
-        "input": "Quiero saber el balance general de la empresa honda para enero de 2024 desglosado o detallado",
-        "query": "SELECT sal_nombre, sal_tipo_estado, sal_valor_nac, sal_valor_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ESF' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%indumot%' AND sal_tipo = 1"
+        "input": " balance general de la empresa honda para enero de 2024 desglosado o detallado",
+        "query": "SELECT sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ESF' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%indumot%' AND sal_tipo = 1 GROUP BY sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "quiero saber el saldo mensual de las cuentas de activos de Honda para marzo de 2024.",
-        "query": "SELECT sal_tipo_estado, sal_valor_nac, sal_valor_ext, sal_nombre, sal_sector, sal_alm_nombre, sal_acumulado_ext, sal_acumulado_nac FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%indumot%' AND sal_mes = 3 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%activo%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, sal_nombre, sal_sector, SUM(sal_acumulado_ext) AS sal_acumulado_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%indumot%' AND sal_mes = 3 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%activo%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_sector"
     },
     {
         "input": "El costo de venta de marzo 2024 para la empresa Inmot es de",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 3 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%costo de ventas%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 3 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%costo de ventas%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_mes, sal_sector"
     },
     {
         "input": "cual es el gasto operacional de Inmot presupuestados para enero de 2024",
-        "query": "SELECT sal_acumulado_nac, sal_acumulado_ext, sal_nombre,sal_tipo_estado FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%gastos operacionales%' AND sal_tipo = 2"
+        "query": "SELECT sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 1 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%gastos operacionales%' AND sal_tipo = 2 GROUP BY sal_nombre, sal_tipo_estado"
     },
     {
         "input": "Cual es la utilidad antes de impuesto de la empresa KTM En el mes de agosto 2024",
-        "query": "SELECT sal_tipo_estado, sal_nombre,sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_mes = 8 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%racing%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, sal_nombre, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_mes = 8 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%racing%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_sector"
     },
     {
         "input": "Cual es la utilidad antes de impuesto de la empresa keramikos En el mes de agosto 2024",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_mes = 8 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%keramiko%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, sal_nombre, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_mes = 8 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%keramiko%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_sector"
     },
     {
         "input": "Estado de la cuenta Efectivo y Equivalentes de efectivo de la empresa REENCANDINA del año 2024.",
-        "query": "SELECT sal_valor_nac, sal_valor_ext, sal_nombre,sal_tipo_estado, sal_sector, sal_mes, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ESF' AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%reencandina%' AND lower(sal_nombre) LIKE '%efectivo%' AND sal_tipo = 1"
+        "query": "SELECT sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext FROM eeff_saldos_ebi_v WHERE sal_tipo_estado = 'ESF' AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%reencandina%' AND lower(sal_nombre) LIKE '%efectivo%' AND sal_tipo = 1 GROUP BY sal_nombre, sal_tipo_estado"
     },
     {
         "input": "Estado de la cuenta Cuentas por cobrar CP de la empresa CCV del año 2023.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%colombiana de vehiculos%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%cuentas por cobrar%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%colombiana de vehiculos%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%cuentas por cobrar%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_mes, sal_sector"
     },
     {
         "input": "Estado de la cuenta Otras cuentas por cobrar de la empresa LA TOSCANA del año 2022.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%cosmica%' AND sal_periodo = 2022 AND lower(sal_nombre) LIKE '%otras cuentas por cobrar%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, sal_nombre, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%cosmica%' AND sal_periodo = 2022 AND lower(sal_nombre) LIKE '%otras cuentas por cobrar%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_sector"
     },
     {
         "input": "Estado de la cuenta Inventarios disponible para la venta de la empresa AUTOCOM del año 2023.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%autocom%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%inventarios disponible para la venta%' AND sal_tipo = 1"
+        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%autocom%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%inventarios disponible para la venta%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_mes, sal_sector"
     },
     {
-        "input": "Estado de la cuenta Inventarios en tránsito de la empresa ECUACERAMICA del año 2024.",
-        "query": "SELECT sal_tipo_estado,  sal_nombre,sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%inventarios en transito%' AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%ecuatoriana de ceramica%' AND sal_tipo = 1"
+        "input": "Estado de la cuenta Inventarios disponible para la venta de la empresa AUTOCOM del año 2023 por almacenes",
+        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%autocom%' AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%inventarios disponible para la venta%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_mes, sal_sector, sal_alm_nombre"
     },
     {
-        "input": "Estado de la cuenta Otros inventarios de la empresa AJE LICORES del año 2022.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%otros inventarios%' AND sal_periodo = 2022 AND lower(sal_nombre_emp) LIKE '%almacenes juan eljuri%' AND sal_tipo = 1"
+        "input": "Cual es la utilidad antes de impuesto de la empresa congas En el mes de agosto 2024 por almacen",
+        "query": "SELECT sal_tipo_estado, sal_nombre, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad antes de impuestos%' AND sal_mes = 8 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%congas%' AND sal_tipo = 1 GROUP BY sal_tipo_estado, sal_nombre, sal_sector, sal_alm_nombre"
     },
     {
-        "input": "Estado de la cuenta Servicios y otros pagos anticipados de la empresa ZAMICOM del año 2023.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%servicios y otros pagos anticipados%' AND sal_periodo = 2023 AND lower(sal_nombre_emp) LIKE '%zamicom%' AND sal_tipo = 1"
+        "input": "valor de utilidad bruta total de todos los clúster a septiembre de 2024",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad bruta%' AND sal_mes = 9 AND sal_periodo = 2024 AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado"
     },
     {
-        "input": "Estado de la cuenta Activos por impuestos corrientes de la empresa ECASA del año 2022.",
-        "query": "SELECT sal_tipo_estado,  sal_nombre,sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_mes, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%ecasa%' AND sal_periodo = 2022 AND lower(sal_nombre) LIKE '%activos por impuestos corrientes%' AND sal_tipo = 1"
+        "input": "Consulta SQL agregada con éxito. valor de utilidad bruta total de todos los clúster a septiembre de 2024",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad bruta%' AND sal_mes = 9 AND sal_periodo = 2024 AND sal_tipo = 1"
     },
     {
-        "input": "Estado de la cuenta Anticipos a Proveedores de la empresa MYESA del año 2024.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%myesa%' AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%anticipos a proveedores%' AND sal_tipo = 1"
+        "input": "utilidad bruta total de todos los clúster por mes en 2024",
+        "query": "SELECT sal_periodo, sal_mes, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad bruta%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_mes"
     },
     {
-        "input": "Estado de la cuenta Otros activos corrientes de la empresa ECUACOCOA del año 2023.",
-        "query": "SELECT sal_tipo_estado, sal_nombre, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_mes, sal_alm_nombre, sal_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%ecuacocoa%' AND sal_mes = 12 AND sal_periodo = 2023 AND lower(sal_nombre) LIKE '%otros activos corrientes%' AND sal_tipo = 1"
+        "input": "utilidad bruta del cluster de bebidas en septiembre 2024",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%utilidad bruta%' AND sal_mes = 9 AND sal_periodo = 2024 AND lower(sal_sector) LIKE '%bebidas%' AND sal_tipo = 1GROUP BY sal_tipo_estado, sal_nombre,sal_periodo"
     },
     {
-        "input": "dame el consolidado de Inventarios en tránsito de KTM de febrero 2023",
-        "query": "SELECT sal_tipo_estado,  sal_nombre,sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre, sal_periodo, sal_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%inventarios en transito%' AND sal_mes = 2 AND sal_periodo IN (2023, 2022) AND lower(sal_nombre_emp) LIKE '%racing%' AND sal_tipo = 1"
+        "input": "calcular el incremento porcentual en ventas netas de la empresa La Taberna desde enero hasta septiembre de 2024.",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_mes, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%la taberna%' AND sal_periodo = 2024 AND sal_mes BETWEEN 1 AND 9 AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_mes"
     },
     {
-        "input": "el CONSOLIDADO de ventas netas de honda de marzo 2024",
-        "query": "SELECT sal_tipo_estado, sal_valor_nac, sal_valor_ext, sal_nombre, sal_sector, sal_alm_nombre, sal_acumulado_ext, sal_acumulado_nac, sal_periodo FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%indumot%' AND sal_mes = 3 AND sal_periodo IN (2024, 2023) AND lower(sal_nombre) LIKE '%ventas netas%' AND sal_tipo = 1"
-    },
-    {
-        "input": "cual es el valor de Patrimonio de la empresa royal de marzo 2024",
-        "query": "SELECT sal_tipo_estado, sal_mes, sal_valor_nac, sal_valor_ext, sal_acumulado_nac, sal_acumulado_ext, sal_sector, sal_alm_nombre, sal_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%patrimonio%' AND sal_tipo_estado = 'ESF' AND sal_mes = 3 AND sal_periodo = 2024 AND lower(sal_nombre_emp) LIKE '%royal%' AND sal_tipo = 1"
+        "input": "Calcular el total de costos de ventas de todos los clusters hasta la fecha actual.",
+        "query": "SELECT sal_tipo_estado, sal_nombre,  SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext FROM eeff_saldos_ebi_v WHERE lower(sal_nombre) LIKE '%costo de ventas%' AND sal_tipo = 1 AND sal_periodo = 2024 GROUP BY sal_tipo_estado, sal_nombre"
     }
 
 ]

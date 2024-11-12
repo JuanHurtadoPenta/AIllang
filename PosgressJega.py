@@ -65,17 +65,17 @@ def create_role(rol_tipo):
                 cur.close()
                 conn.close()
 
-def add_question(pre_canal_id, pre_cliente, pre_pregunta):
+def add_question(pre_canal_id, pre_cliente, pre_pregunta,id_padre):
     """Agregar una nueva pregunta en la tabla jega_preguntas y retornar el ID de la pregunta creada."""
     conn = connect_db()
     if conn:
         with conn.cursor() as cur:
             try:
                 cur.execute(f"""
-                    INSERT INTO {SCHEMA_NAME}."jega_preguntas" (pre_canal_id, pre_id_usuario, pre_fecha, pre_pregunta)
-                    VALUES (%s, %s, %s, %s)
+                    INSERT INTO {SCHEMA_NAME}."jega_preguntas" (pre_canal_id, pre_id_usuario, pre_fecha, pre_pregunta,pre_padre_id)
+                    VALUES (%s, %s, %s, %s,%s)
                     RETURNING pre_id;  -- Devuelve el ID de la pregunta creada
-                """, (pre_canal_id, pre_cliente, datetime.now(), pre_pregunta))
+                """, (pre_canal_id, pre_cliente, datetime.now(), pre_pregunta,id_padre))
                 
                 # Obtener el ID de la pregunta creada
                 pregunta_id = cur.fetchone()[0]  # fetchone() devuelve una tupla, así que obtenemos el primer elemento
@@ -120,6 +120,32 @@ def add_response(res_respuesta, res_id_pregunta, res_modulo):
                 print(f"Respuesta agregada con éxito.")
             except Exception as e:
                 print(f"Error al agregar respuesta: {e}")
+            finally:
+                cur.close()
+                conn.close()
+
+def add_response_id(res_respuesta, res_id_pregunta, res_modulo):
+    """Agregar una nueva respuesta en la tabla jega_respuestas y retornar el ID."""
+    conn = connect_db()
+    if conn:
+        with conn.cursor() as cur:
+            try:
+                # Ejecutar la inserción con la cláusula RETURNING para obtener el ID
+                cur.execute(f"""
+                    INSERT INTO {SCHEMA_NAME}."jega_respuestas" (res_respuesta, res_id_pregunta, res_modulo, res_fecha)
+                    VALUES (%s, %s, %s, %s) RETURNING res_id;
+                """, (res_respuesta, res_id_pregunta, res_modulo, datetime.now()))
+                
+                # Obtener el ID retornado
+                res_id = cur.fetchone()[0]
+                conn.commit()
+                
+                print(f"Respuesta agregada con éxito, ID: {res_id}")
+                return res_id  # Retornar el ID de la respuesta insertada
+
+            except Exception as e:
+                print(f"Error al agregar respuesta: {e}")
+                return None
             finally:
                 cur.close()
                 conn.close()

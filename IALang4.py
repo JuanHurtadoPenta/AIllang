@@ -17,12 +17,12 @@ from dotenv import load_dotenv
 # Ignorar todos los DeprecationWarning
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
-dir_VSEjemplos="/app/VectorStore/Ejemplos"
-#dir_VSEjemplos="VectorStore/Ejemplos"
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.5)
+#dir_VSEjemplos="/app/VectorStore/Ejemplos"
+dir_VSEjemplos="VectorStore/Ejemplos"
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
 
 # infomracion encuentras aqui  https://www.youtube.com/watch?v=fss6CrmQU2Y&t=2510s
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 os.environ["LANGCHAIN_TRACING_V2"]="true"
 os.environ["LANGCHAIN_API_KEY"]="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"
 os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
@@ -31,7 +31,7 @@ os.environ["LANGCHAIN_PROJECT"]="NL2SQL"
 def ObtenerDB():
     username = "dev_jhurtado" 
     password = "Pka12msE1b2qO%401"# "Pka12msE1b2qO@1" 
-    host = "10.124.0.5"#"192.168.193.5" #"10.124.0.5"#
+    host = "192.168.193.5" #"10.124.0.5"#
     port = "5432"
     mydatabase = "dbcorp"
     pg_uri = f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{mydatabase}"
@@ -47,7 +47,7 @@ def ejecutar_consulta(sql_query):
     try:
         # Conectarse a la base de datos PostgreSQL
         connection = psycopg2.connect(
-            host="10.124.0.5",#"192.168.193.5",#"10.124.0.5",
+            host="192.168.193.5",#"10.124.0.5",
             port="5432",
             dbname="dbcorp",
             user='dev_jhurtado',
@@ -81,9 +81,17 @@ My query is as follow: {human_query}
 Before providing me with a response, carefully consider the following **OBSERVATIONS**:
 
 
-1. **Selection of the value based on `sal_tipo_estado`**:
-   - **If `sal_tipo_estado` is `'ERI'`, use `sal_acumulado_nac` to respond  and mention that the value is "saldo acumulado".**
-   - **If `sal_tipo_estado` is `'ESF'`, use `sal_valor_nac` to respond and mention that the value is "saldo mensual".**
+1. **Analysis of `sal_tipo_estado` column and selection of values**:
+
+   - ***If the value of `sal_tipo_estado` is `'ERI'`***:
+     - Extract the values from the **`sal_acumulado_nac`** columns.
+     - Respond based on those values and explicitly state that the value corresponds to *"saldo acumulado (acumulado nacional)"*.
+
+   - ***If the value of `sal_tipo_estado` is `'ESF'`***:
+     - Extract the values from the **`sal_valor_nac`** columns.
+     - Respond based on those values and explicitly state that the value corresponds to *"saldo mensual (mensual nacional)"*.
+
+   - Ensure the response clearly mentions whether the amount is based on *"saldo acumulado"* or *"saldo mensual"*, depending on the column from which the value was obtained.
 
 2. **Maintain the signs of the values**: Ensure that the *numeric values retain their original signs in your respond*.
 
@@ -113,8 +121,8 @@ Before providing me with a response, carefully consider the following **OBSERVAT
     try:
         client = OpenAI(
             # This is the default and can be omitted
-            api_key='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'
-            #api_key=os.environ.get("OPENAI_API_KEY"),
+            #api_key='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'
+            api_key=os.environ.get("OPENAI_API_KEY"),
         )
         chat_completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -122,7 +130,7 @@ Before providing me with a response, carefully consider the following **OBSERVAT
             max_tokens=3000,
             n=1,
             stop=None,
-            temperature=0.5,
+            temperature=0.2,
         )
         respuesta=chat_completion
         descripcion = respuesta.choices[0].message.content
@@ -212,6 +220,7 @@ Instrucciones:
    - Escribe una consulta SQL en PostgreSQL que recupere la información solicitada utilizando **solo** los nombres de columnas proporcionados en los ejemplos y ***tomando en cuenta todos los pasos anteriores.***
    - No añadas ni asumas ninguna condición, nombres de columnas o valores que no hayan sido mencionados explícitamente por el usuario.
    -**No te Inventes COLUMNAS**
+   -**Siempre selecionar las columnas ** sal_valor_nac** , **sal_acumulado_nac** ,**Sal_tipo_estado**en tu consulta.**
 
 7. **Salida de la consulta:**
    - La salida de la IA debe ser **solo el texto de la consulta SQL dentro de las marcas ```sql** sin ningún tipo de formato adicional, comentarios, bloques de código o caracteres especiales . 
@@ -294,8 +303,8 @@ Devuelve tu respuesta en formato JSON con la clave "nombre".
     try:
         client = OpenAI(
             # This is the default and can be omitted
-            api_key='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'
-            #api_key=os.environ.get("OPENAI_API_KEY"),
+            #api_key='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'
+            api_key=os.environ.get("OPENAI_API_KEY"),
         )
         chat_completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -358,7 +367,7 @@ def borrar():
 #print(GetEjemploPrompt(input))
 # Lista de consultas
 # Aquí puedes modificar para ejecutar la consulta en tu base de datos en lugar de solo imprimirla.
-#print(NL2SQL(" dame el   valor de activo de mayo 2024 de la empresa KTM",1,1))
+#print(NL2SQL(" dame el   valor de ventas netas de mayo 2024 de la empresa inmot",1,1))
 
 #dame la diferencia de ventas netas del mes de enero de los años 2023 y 2024 de la empresa inmot
 #print(ExtaerNombre(human_query,Empresas))

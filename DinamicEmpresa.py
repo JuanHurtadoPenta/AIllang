@@ -6,8 +6,8 @@ from langchain_chroma import Chroma
 embeddings = OpenAIEmbeddings()
 dir ="/app/VectorStore/Empresas"
 #dir ="VectorStore/Empresas"
-ruta_archivo = r"/app/DocumentosRequeridos/empresas.txt"#/app/DocumentosRequeridos/empresas.txt"  # Asegúrate de que el archivo esté en formato JSON
-#ruta_archivo = r"DocumentosRequeridos/empresas.txt"
+#ruta_archivo = r"/app/DocumentosRequeridos/empresas.txt"#/app/DocumentosRequeridos/empresas.txt"  # Asegúrate de que el archivo esté en formato JSON
+ruta_archivo = r"DocumentosRequeridos/empresas.txt"
 # Función para leer empresas desde un archivo JSON
 def leerEmpresas():
     with open(ruta_archivo, 'r', encoding='utf-8') as file:
@@ -41,8 +41,8 @@ def vectorestore():
     return vector_store
 def ObtenerEmpresa(query):
     # Carga la información en el vector store
-    #vector_store = CargarInfoVS()
-    vector_store=vectorestore()
+    vector_store = CargarInfoVS()
+    #vector_store=vectorestore()
     # Realiza una búsqueda de similitu
     #print(query)
     results = vector_store.similarity_search(query, k=3)  # Cambia 'k' según el número de resultados que quieras obtener
@@ -57,7 +57,39 @@ def ObtenerEmpresa(query):
     resultado_final = "\n".join(resultados)
     #print(resultado_final)
     return resultado_final
+def ObtenerEmpresa1(query):
+    # Carga la información en el vector store
+    #vector_store = CargarInfoVS()
+    vector_store=vectorestore()
+    # Realiza una búsqueda de similitu
+    #print(query)
+    results = vector_store.similarity_search_with_score(query, k=1)  # Cambia 'k' según el número de resultados que quieras obtener
+    
+    #print(results)# Inicializa una variable para almacenar todos los resultados concatenados
+    resultados = []
+    total=[]
+    # Itera a través de todos los resultados y agrega cada uno a la lista
+    for documento in results:
+        res,b=documento
+        resultado = f"* Nombre comercial: {res.page_content}, Nombre Completo: {res.metadata['id']}"
+        resultados.append(resultado)
+        total.append(b)
+    print(total)
+    #print(resultados)
+    coind=False
+    for a in total:
+        #print(a)
+        if float(a)<=0.25:
+            coind=True
+    
+    if coind==True:
+    # Une todos los resultados en una sola cadena con salto de línea
+        resultado_final = "\n".join(resultados)
+        #print(resultado_final)
+        return resultado_final
+    else: return None
+
 #######################33
 #para volver a cargar la base se debe borrar la carpeta empresa y ejecutar
- #vector_store = CargarInfoVS()
+#vector_store = CargarInfoVS()
 #print(ObtenerEmpresa("Cual es el ERI de  royal motors para marzo 2024"))

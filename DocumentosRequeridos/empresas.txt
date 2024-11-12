@@ -193,7 +193,7 @@
         "nombre_comercial": "ENSUD"
     },
     {
-        "nombre_completo": "ROYALMOTORS DISTRIBUCION Y COMERCIO S.A.",
+        "nombre_completo": "ROYALMOTORS ",
         "nombre_comercial": "royal motors"
     },
     {

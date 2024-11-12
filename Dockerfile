@@ -16,7 +16,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Exponer el puerto que usará la aplicación (8000 por defecto en FastAPI)
-EXPOSE 8000
+EXPOSE 8383
 
 # Comando para ejecutar la aplicación usando Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8383"]
