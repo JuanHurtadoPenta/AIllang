@@ -3,7 +3,7 @@ from psycopg2 import sql
 from datetime import datetime
 
 # Datos de conexión
-DB_HOST = "192.168.193.5"#"10.124.0.5"#
+DB_HOST = "10.124.0.5"#"192.168.193.5"#"10.124.0.5"#
 DB_NAME = "dbcorp"
 DB_USER = "dev_jhurtado" 
 DB_PASSWORD = "Pka12msE1b2qO@1"#"Pka12msE1b2qO%401"#"Pka12msE1b2qO@1"#

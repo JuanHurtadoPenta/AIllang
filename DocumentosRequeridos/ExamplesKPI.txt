@@ -1,0 +1,107 @@
+[
+  {
+    "input": "Consultar ROE(Duppont) por mes del año 2023 de la empresa ktm, el valor acumulado.",
+    "query": "SELECT sal_mes, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%racing%' AND sal_tipo=1 AND sal_nombre_indicador = 'ROE(Duppont)';"
+  },
+  {
+    "input": "Consultar ROA del año 2023 de la empresa inmot para febrero.",
+    "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%inmot%' AND sal_mes = 2 AND sal_tipo=1 AND sal_nombre_indicador = 'ROA';"
+  },
+  {
+    "input": "Liquidez Corriente del año 2023 de la empresa la toscana por mes, valor acumulado.",
+    "query": "SELECT sal_mes, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%COSMICA%' AND sal_tipo=1 AND sal_nombre_indicador = 'Liquidez Corriente';"
+  },
+  {
+    "input": "Cual es la Prueba Ácida del año 2023 de la empresa motor power por mes.",
+    "query": "SELECT sal_mes, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND sal_tipo=1 AND LOWER(sal_nombre_emp) ILIKE '%motor power%' AND sal_nombre_indicador = 'Prueba Ácida';"
+  },
+  {
+    "input": "Capital Neto de Trabajo del año 2023 de la empresa royal motor para marzo.",
+    "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%royal%' AND sal_mes = 3 AND sal_tipo=1 AND sal_nombre_indicador = 'Capital Neto de Trabajo';"
+  },
+  {
+    "input": "Rotación Inventarios del año 2023 por mes de todas las empresas del cluster de motos, me interesa el valor acumulado.",
+    "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_sector) = 'motos' AND sal_tipo=1 AND sal_nombre_indicador = 'Rotación Inventarios';"
+  },
+  {
+    "input": "Días de Inventario (días) del año 2023 por mes de todas las empresas del cluster de motos, me interesa el valor acumulado.",
+    "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_sector) = 'motos' AND sal_tipo=1 AND sal_nombre_indicador = 'Días de Inventario (días)';"
+  },
+  {
+    "input": "Rotación Cartera del año 2023 de la empresa royal motors para el mes de septiembre, el valor acumulado.",
+    "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%royal motors%' AND sal_mes = 9 AND sal_tipo=1 AND sal_nombre_indicador = 'Rotación Cartera';"
+  },
+  {
+    "input": "Periodo medio de cobro (días) del año 2021, 2022 y 2023 del mes de septiembre de la empresa indumot, el acumulado.",
+    "query": "SELECT sal_periodo, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo IN (2021, 2022, 2023) AND LOWER(sal_nombre_emp) ILIKE '%indumot%' AND sal_mes = 9 AND sal_tipo=1 AND sal_nombre_indicador = 'Periodo medio de cobro (días)';"
+  },
+  {
+    "input": "Rotación cuentas por pagar del año 2023 de la empresa inmot para marzo.",
+    "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE LOWER(sal_nombre_emp) ILIKE '%indian motos inmot%' AND sal_mes = 3 AND sal_tipo = 1 AND sal_periodo =2023 AND LOWER(sal_nombre_indicador) ILIKE'%Rotación Cuentas por Pagar%';"
+  },
+  {
+    "input": "Período medio de pago (días) del año 2023 de la empresa ktm por mes.",
+    "query": "SELECT sal_mes, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) LIKE '%racing%' AND sal_tipo=1 AND LOWER(sal_nombre_indicador) ILIKE'%Periodo medio de pago (días)%';"
+  },
+  {
+    "input": "Ciclo de efectivo (días) por mes del año 2023 de todas las empresas del cluster de motos, me interesa el valor acumulado del indicador.",
+    "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_sector) = 'motos' AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE'%Ciclo de Efectivo (días)%';"
+  },
+  {
+    "input": "Ciclo de efectivo ($ día) del año 2023 de la empresa la toscana del segundo trimestre del año.",
+    "query": "SELECT sal_mes, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%cosmica%' AND sal_mes IN (4, 5, 6) AND sal_tipo=1 AND LOWER(sal_nombre_indicador) ILIKE'%Ciclo de Efectivo ($ día)%';"
+  },
+  {
+    "input": "Razón Endeudamiento del año 2023 de las empresas del cluster de bebidas del mes de marzo, el valor acumulado del indicador.",
+    "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_sector) = 'bebidas' AND sal_mes = 3 AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE'%Razon Endeudamiento%';"
+  },
+  {
+    "input": "Cobertura Intereses del año 2023 de la empresa en febrero para indumot.",
+    "query": "SELECT sal_nombre_indicador, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE LOWER(sal_nombre_emp) ILIKE '%indumot%' AND sal_mes = 2 AND sal_tipo = 1 AND sal_periodo=2023 AND LOWER(sal_nombre_indicador) ILIKE'%Cobertura Intereses%';"
+  },
+  {
+    "input": "Apalancamiento Patrimonio del año 2024 de la empresa en febrero para indumot.",
+    "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE LOWER(sal_nombre_emp) ILIKE '%indumot%' AND sal_mes = 2 AND sal_tipo = 1 AND sal_periodo=2024 AND sal_nombre_indicador = 'Apalancamiento Patrimonio';"
+  },
+    {
+        "input": "Consultar el porcentaje Costo de Venta del año 2024 de la empresa KTM del mes de marzo.",
+        "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) LIKE '%racing%' AND sal_mes = 3 AND sal_tipo=1 AND LOWER(sal_nombre_indicador) ILIKE '%costo de venta%';"
+    },
+    {
+        "input": "Consultar el porcentaje Margen Bruto del mes de febrero de los años 2024 de la empresa italpisos.",
+        "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) ILIKE '%italpisos s. a.%' AND sal_mes = 2 AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE '%margen bruto%';"
+    },
+    {
+        "input": "Consultar el porcentaje Gastos Operacionales del año 2023 para el primer trimestre de la empresa RoyalMotors.",
+        "query": "SELECT sal_mes, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) ILIKE '%royalmotors%' AND sal_mes IN (1, 2, 3) AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE '%gastos operacionales%';"
+    },
+    {
+        "input": "Consultar el porcentaje Gastos Administrativos del año 2024 de la empresa RoyalMotors, el valor acumulado pero los presupuestados.",
+        "query": "SELECT sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) ILIKE '%royalmotors%' AND sal_tipo = 2 AND LOWER(sal_nombre_indicador) ILIKE '%gastos administrativos%';"
+    },
+    {
+        "input": "El porcentaje acumulado de Gastos de Ventas reales de la empresa RoyalMotors en 2024 hasta la fecha.",
+        "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) ILIKE '%royalmotors%' AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE '%gastos de ventas%';"
+    },
+    {
+        "input": "Consultar el porcentaje Gastos de Publicidad del año 2024 de la empresa KTM para mayo.",
+        "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) LIKE '%racing%' AND sal_mes = 5 AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE '%gastos de publicidad%';"
+    },
+    {
+        "input": "Consultar el porcentaje Gastos de Logística del año 2024 de la empresa KTM para febrero.",
+        "query": "SELECT sal_nombre_indicador, sal_mes, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND sal_mes = 2 AND LOWER(sal_nombre_emp) LIKE '%racing%' AND sal_tipo=1 AND LOWER(sal_nombre_indicador) ILIKE '% gastos de logística%';"
+    },
+    {
+        "input": "Consultar el porcentaje Utilidad Operacional del año 2024 de la empresa KTM para octubre.",
+        "query": "SELECT sal_nombre_indicador, sal_mes, sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) LIKE '%racing%' AND sal_tipo=1 AND sal_mes = 10 AND LOWER(sal_nombre_indicador) ILIKE '%utilidad operacional%';"
+    },
+    {
+        "input": "Consultar el porcentaje Utilidad Neta de marzo 2024 de la empresa KTM.",
+        "query": "SELECT sal_porcentaje_val AS porcentaje, sal_porcentaje_acu AS porcentaje_acumulado FROM eeff_valor_indicador_v WHERE sal_periodo = 2024 AND LOWER(sal_nombre_emp) LIKE '%racing%' AND sal_mes = 3 AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE '%utilidad neta%';"
+    },
+    {
+        "input": "Consultar el porcentaje EBITDA del año 2023 de la empresa La Toscana el mes de septiembre el valor acumulado del indicador.",
+        "query": "SELECT sal_nombre_indicador, sal_mes, sal_nombre_emp, sal_porcentaje_acu AS porcentaje_acumulado, sal_porcentaje_val AS porcentaje FROM eeff_valor_indicador_v WHERE sal_periodo = 2023 AND LOWER(sal_nombre_emp) LIKE '%cosmica%' AND sal_mes = 9 AND sal_tipo = 1 AND LOWER(sal_nombre_indicador) ILIKE '%ebitda%';"
+    }
+
+]

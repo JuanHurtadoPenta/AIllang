@@ -1,35 +1,35 @@
 
 [
     {
-        "nombre_completo": "INDIAN MOTOS INMOT S.A.",
+        "nombre_completo": "INDIAN MOTOS INMOT ",
         "nombre_comercial": "INMOT"
     },
     {
-        "nombre_completo": "KARNATAKA S.A.",
+        "nombre_completo": "KARNATAKA ",
         "nombre_comercial": "Karnataka"
     },
     {
-        "nombre_completo": "METROKIA S.A.",
-        "nombre_comercial": "Metrokia S.A."
+        "nombre_completo": "METROKIA ",
+        "nombre_comercial": "Metrokia S.A"
     },
     {
-        "nombre_completo": "TECNOCYCLO S.A.",
+        "nombre_completo": "TECNOCYCLO ",
         "nombre_comercial": "TECNOCYCLO"
     },
     {
-        "nombre_completo": "IMPORTADORA DE VEHÍCULOS COMERCIALES S.A VEHICOMERCIAL",
+        "nombre_completo": "IMPORTADORA DE VEHÍCULOS COMERCIALES ",
         "nombre_comercial": "Vehicomercial"
     },
     {
-        "nombre_completo": "REENCAUCHADORA ANDINA REENCANDINA S.A.",
+        "nombre_completo": "REENCAUCHADORA ANDINA REENCANDINA",
         "nombre_comercial": "REENCANDINA"
     },
     {
-        "nombre_completo": "NEWTIRE S.A.",
+        "nombre_completo": "NEWTIRE ",
         "nombre_comercial": "NEWTIRE"
     },
     {
-        "nombre_completo": "DISCOLPARTES S.A.S",
+        "nombre_completo": "DISCOLPARTES ",
         "nombre_comercial": "DISCOLPARTES"
     },
     {
@@ -37,11 +37,11 @@
         "nombre_comercial": "CCV"
     },
     {
-        "nombre_completo": "CERAMICA RIALTO S.A.",
+        "nombre_completo": "CERAMICA RIALTO ",
         "nombre_comercial": "RIALTO"
     },
     {
-        "nombre_completo": "ITALPISOS S. A.",
+        "nombre_completo": "ITALPISOS ",
         "nombre_comercial": "ITALPISOS"
     },
     {
@@ -49,11 +49,11 @@
         "nombre_comercial": "LA TOSCANA"
     },
     {
-        "nombre_completo": "AUTOMOTORES COMERCIALES AUTOCOM S A",
+        "nombre_completo": "AUTOMOTORES COMERCIALES AUTOCOM",
         "nombre_comercial": "Autocom S.A"
     },
     {
-        "nombre_completo": "ARMCOL SAS",
+        "nombre_completo": "ARMCOl",
         "nombre_comercial": "ARMCOL"
     },
     {
@@ -61,67 +61,67 @@
         "nombre_comercial": "ECUACERAMICA"
     },
     {
-        "nombre_completo": "CERAMICA ANDINA C.A.",
+        "nombre_completo": "CERAMICA ANDINA",
         "nombre_comercial": "Ceramica Andina"
     },
     {
-        "nombre_completo": "PORTER HOME SAS",
+        "nombre_completo": "PORTER HOME",
         "nombre_comercial": "PORTER"
     },
     {
-        "nombre_completo": "KERAMIKOS S.A.",
-        "nombre_comercial": "KERAMIKOS S.A."
+        "nombre_completo": "KERAMIKOS",
+        "nombre_comercial": "KERAMIKOS "
     },
     {
-        "nombre_completo": "CERAMICASA SA",
+        "nombre_completo": "CERAMICASA ",
         "nombre_comercial": "Ceramicasa"
     },
     {
-        "nombre_completo": "CATARI S.A.",
+        "nombre_completo": "CATARI ",
         "nombre_comercial": "Catari"
     },
     {
-        "nombre_completo": "CENTRO CERAMICO CERMOSA S.A.",
+        "nombre_completo": "CENTRO CERAMICO CERMOSA",
         "nombre_comercial": "Centro Ceramico Cermosa"
     },
     {
-        "nombre_completo": "CERAMICA PELLA CIA. LTDA.",
+        "nombre_completo": "CERAMICA PELLA CIA. LTDA",
         "nombre_comercial": "Ceramica Pella"
     },
     {
-        "nombre_completo": "COMPANIA DE INVESTIGACIÓN Y EXPLOTACIÓN MINERA EXPLOMINAS S.A",
+        "nombre_completo": "COMPANIA DE INVESTIGACIÓN Y EXPLOTACIÓN MINERA EXPLOMINAS",
         "nombre_comercial": "Explominas S.A"
     },
     {
-        "nombre_completo": "EXPLOTACIÓN MINERA DEL SUR EXPLOSUR C.A",
+        "nombre_completo": "EXPLOTACIÓN MINERA DEL SUR EXPLOSUR ",
         "nombre_comercial": "Explosur"
     },
     {
-        "nombre_completo": "INTERBORDER S.A.",
+        "nombre_completo": "INTERBORDER",
         "nombre_comercial": "Interborder"
     },
     {
-        "nombre_completo": "MECANICA DE PRECISION LEMA DEL PACIFICO MEPRELPA S.A",
+        "nombre_completo": "MECANICA DE PRECISION LEMA DEL PACIFICO MEPRELPA",
         "nombre_comercial": "Meprelpa S.A"
     },
     {
-        "nombre_completo": "MORTEROS-PEGACER S.A.",
+        "nombre_completo": "MORTEROS-PEGACER ",
         "nombre_comercial": "PEGACER"
     },
     {
-        "nombre_completo": "EXPLOTADORA DE MINAS ORIENTE ORMIEX C.A",
+        "nombre_completo": "EXPLOTADORA DE MINAS ORIENTE ORMIEX",
         "nombre_comercial": "ORMIEX"
     },
     {
-        "nombre_completo": "SANITARIOS HYPOO - CO S.A.",
+        "nombre_completo": "SANITARIOS HYPOO",
         "nombre_comercial": "Sanitarios Hypoo"
     },
     {
-        "nombre_completo": "COMPANIA MINERA ZAMORA ZAMICON C.A.",
+        "nombre_completo": "COMPANIA MINERA ZAMORA ZAMICON",
         "nombre_comercial": "Zamicom"
     },
     {
-        "nombre_completo": "ASIARACE S.A",
+        "nombre_completo": "ASIARACE",
         "nombre_comercial": "Asirace"
     },
     {
@@ -129,23 +129,23 @@
         "nombre_comercial": "Ecasa"
     },
     {
-        "nombre_completo": "SERVIECASA S.A",
+        "nombre_completo": "SERVIECASA",
         "nombre_comercial": "SERVIECASA"
     },
     {
-        "nombre_completo": "SIDERURGICA ECUATORIANA S.A",
+        "nombre_completo": "SIDERURGICA ECUATORIANA ",
         "nombre_comercial": "Sidec S.A"
     },
     {
-        "nombre_completo": "CARTORAMA C.A",
+        "nombre_completo": "CARTORAMA ",
         "nombre_comercial": "Cartorama"
     },
     {
-        "nombre_completo": "ASUNCORP S.A",
+        "nombre_completo": "ASUNCORP",
         "nombre_comercial": "Asuncorp"
     },
     {
-        "nombre_completo": "ELJURI HATARI S.A",
+        "nombre_completo": "ELJURI HATARI ",
         "nombre_comercial": "EHATARI"
     },
     {
@@ -154,30 +154,30 @@
     },
     {
         "nombre_completo": "COMPAÑIA ECUATORIANA PRODUCTORA DE DERIVADOS DE COCOA C.A ECUACOCOA",
-        "nombre_comercial": "ECUACOCOA C.A."
+        "nombre_comercial": "ECUACOCOA C.A"
     },
     {
-        "nombre_completo": "IMPERIALBC S.A.",
+        "nombre_completo": "IMPERIALBC ",
         "nombre_comercial": "Gasgua"
     },
     {
-        "nombre_completo": "PLURIALMENT. S.A",
+        "nombre_completo": "PLURIALMENT",
         "nombre_comercial": "CERVECERIA ARTESANAL LATITUD CERO"
     },
     {
-        "nombre_completo": "COLEMUN S.A.",
-        "nombre_comercial": "Colemun S.A."
+        "nombre_completo": "COLEMUN",
+        "nombre_comercial": "Colemun "
     },
     {
-        "nombre_completo": "DISTAUSTRO S.A.",
-        "nombre_comercial": "Distaustro S.A."
+        "nombre_completo": "DISTAUSTRO ",
+        "nombre_comercial": "Distaustro "
     },
     {
         "nombre_completo": "ADMINPROFELTOM SAS",
         "nombre_comercial": "Adminprofeltom SAS"
     },
     {
-        "nombre_completo": "ESFEL S.A",
+        "nombre_completo": "ESFEL",
         "nombre_comercial": "Esfel"
     },
     {
@@ -185,11 +185,11 @@
         "nombre_comercial": "Autoexpress"
     },
     {
-        "nombre_completo": "EC-KAWASAKI DEL ECUADOR S.A.",
+        "nombre_completo": "EC-KAWASAKI DEL ECUADOR",
         "nombre_comercial": "Kawasaki"
     },
     {
-        "nombre_completo": "ENSAMBLADORA SUDAMERICANA ENSUD S.A.",
+        "nombre_completo": "ENSAMBLADORA SUDAMERICANA ENSUD",
         "nombre_comercial": "ENSUD"
     },
     {
@@ -197,112 +197,112 @@
         "nombre_comercial": "royal motors"
     },
     {
-        "nombre_completo": "GAIN PHONE SERVICIOS S.A",
+        "nombre_completo": "GAIN PHONE SERVICIOS",
         "nombre_comercial": "GAIN PHONE"
     },
     {
-        "nombre_completo": "ECOILPET S.A.",
-        "nombre_comercial": "Ecoilpet S.A."
+        "nombre_completo": "ECOILPET",
+        "nombre_comercial": "Ecoilpet S.A"
     },
     {
-        "nombre_completo": "CORPORACIÓN CFC S.A.",
+        "nombre_completo": "CORPORACIÓN CFC",
         "nombre_comercial": "Corporacion CFC S.A"
     },
     {
-        "nombre_completo": "SHERLOCTECH SOLUTIONS S.A.",
-        "nombre_comercial": "Sherloctech Solutions S.A."
+        "nombre_completo": "SHERLOCTECH SOLUTIONS ",
+        "nombre_comercial": "Sherloctech Solutions "
     },
     {
         "nombre_completo": "ACOSAUSTRO S.A AGENCIA ASESORA PRODUCTORA DE SEGUROS",
         "nombre_comercial": "ACOSAUSTRO"
     },
     {
-        "nombre_completo": "GLOBALPLAN S.A.",
+        "nombre_completo": "GLOBALPLAN",
         "nombre_comercial": "GLOBALPLAN"
     },
     {
-        "nombre_completo": "SEGUROS UNIDOS S.A.",
-        "nombre_comercial": "Seguros Unidos S.A."
+        "nombre_completo": "SEGUROS UNIDOS",
+        "nombre_comercial": "Seguros Unidos"
     },
     {
-        "nombre_completo": "LOGISTICA AUTOMOTRIZ MANTA LOGIMANTA S.A.",
-        "nombre_comercial": "LOGIMANTA S.A."
+        "nombre_completo": "LOGISTICA AUTOMOTRIZ MANTA LOGIMANTA ",
+        "nombre_comercial": "LOGIMANTA "
     },
     {
-        "nombre_completo": "LOGISTICA VEHÍCULOS DE COLOMBIA S.A.S.",
+        "nombre_completo": "LOGISTICA VEHÍCULOS DE COLOMBIA",
         "nombre_comercial": "Logiveco"
     },
     {
-        "nombre_completo": "SERVIAUTOS S.A.S",
+        "nombre_completo": "SERVIAUTOS",
         "nombre_comercial": "Serviautos"
     },
     {
-        "nombre_completo": "LOGICENTRO S.A.S",
+        "nombre_completo": "LOGICENTRO ",
         "nombre_comercial": "Logicentro"
     },
     {
-        "nombre_completo": "AUTOHYUN S. A",
+        "nombre_completo": "AUTOHYUN",
         "nombre_comercial": "Autohyun"
     },
     {
-        "nombre_completo": "FISUM S.A",
+        "nombre_completo": "FISUM ",
         "nombre_comercial": "Fisum"
     },
     {
-        "nombre_completo": "NEOAUTO S.A.",
-        "nombre_comercial": "Neoauto S.A."
+        "nombre_completo": "NEOAUTO ",
+        "nombre_comercial": "Neoauto S.A"
     },
     {
-        "nombre_completo": "NOVOPLANT S.A",
+        "nombre_completo": "NOVOPLANT ",
         "nombre_comercial": "Novoplant"
     },
     {
-        "nombre_completo": "INDIANEGOCIOS S.A",
+        "nombre_completo": "INDIANEGOCIOS",
         "nombre_comercial": "Indianegocios"
     },
     {
-        "nombre_completo": "QUITO MERCANTIL AUTOMOTRIZ MERQUIAUTO S.A.",
+        "nombre_completo": "QUITO MERCANTIL AUTOMOTRIZ MERQUIAUTO ",
         "nombre_comercial": "Merquiauto"
     },
     {
-        "nombre_completo": "INTRANS ECUADOR S.A.",
+        "nombre_completo": "INTRANS ECUADOR ",
         "nombre_comercial": "Autobahn"
     },
     {
-        "nombre_completo": "ECSYAUTO S.A.",
+        "nombre_completo": "ECSYAUTO",
         "nombre_comercial": "Ecsyauto"
     },
     {
-        "nombre_completo": "STARMOTORS S.A",
+        "nombre_completo": "STARMOTORS",
         "nombre_comercial": "Starmotors"
     },
     {
-        "nombre_completo": "NEOTRUCK S.A",
+        "nombre_completo": "NEOTRUCK ",
         "nombre_comercial": "Neotruck"
     },
     {
-        "nombre_completo": "ARMACAR S.A.",
+        "nombre_completo": "ARMACAR ",
         "nombre_comercial": "Armacar"
     },
     {
-        "nombre_completo": "ARRENDAUTO S.A.",
+        "nombre_completo": "ARRENDAUTO ",
         "nombre_comercial": "Localiza Rent a Car"
     },
     {
-        "nombre_completo": "LANIFE S.A",
+        "nombre_completo": "LANIFE ",
         "nombre_comercial": "Lanife"
     },
     {
-        "nombre_completo": "NEWDEVELOPMENT S.A.",
+        "nombre_completo": "NEWDEVELOPMENT ",
         "nombre_comercial": "Newdevelopment"
     },
     {
-        "nombre_completo": "TRANSLOGIMANTA S.A.",
+        "nombre_completo": "TRANSLOGIMANTA ",
         "nombre_comercial": "Translogimanta"
     },
     {
-        "nombre_completo": "NEGOCIOS AUTOMOTRICES NEOHYUNDAI S.A.",
-        "nombre_comercial": "NEOHYUNDAI S.A."
+        "nombre_completo": "NEGOCIOS AUTOMOTRICES NEOHYUNDAI",
+        "nombre_comercial": "NEOHYUNDAI S.A"
     },
     {
         "nombre_completo": "QUITO MOTORS S.A. COMERCIAL E INDUSTRIAL",
@@ -313,12 +313,12 @@
         "nombre_comercial": "honda"
     },
     {
-        "nombre_completo": "COMPANIA NACIONAL DE GAS CONGAS C.A.",
+        "nombre_completo": "COMPANIA NACIONAL DE GAS CONGAS",
         "nombre_comercial": "CONGAS"
     },
 
     {
-        "nombre_completo": "TRANSPORTE DE CARGA PESADA EVOLUCARG S.A.",
+        "nombre_completo": "TRANSPORTE DE CARGA PESADA EVOLUCARG ",
         "nombre_comercial": "EVOLUCARG"
     },
     {
@@ -334,7 +334,7 @@
         "nombre_comercial": "ECUARTEFACTOS"
     },
     {
-        "nombre_completo": "INMOBILIARIA INDUSTRIAL SAN RICARDO S.A.",
+        "nombre_completo": "INMOBILIARIA INDUSTRIAL SAN RICARDO",
         "nombre_comercial": "INMOBILIARIA SAN RICARDO"
     },
     {
@@ -342,55 +342,55 @@
         "nombre_comercial": "SOCELEC"
     },
     {
-        "nombre_completo": "AMAZONASHOT HOTELERÍA ORGANIZACIONES Y TURISMO S.A.",
+        "nombre_completo": "AMAZONASHOT HOTELERÍA ORGANIZACIONES Y TURISMO",
         "nombre_comercial": "MARRIOT"
     },
     {
-        "nombre_completo": "INAMAZONAS INMOBILIARIA AMAZONAS S. A.",
+        "nombre_completo": "INAMAZONAS INMOBILIARIA AMAZONAS",
         "nombre_comercial": "INAMAZONAS"
     },
     {
-        "nombre_completo": "EMBOTELLADORA AZUAYA S.A.",
+        "nombre_completo": "EMBOTELLADORA AZUAYA",
         "nombre_comercial": "EASA"
     },
     {
-        "nombre_completo": "LICORES NACIONALES S.A.",
+        "nombre_completo": "LICORES NACIONALES ",
         "nombre_comercial": "LICONACIONAL"
     },
     {
-        "nombre_completo": "CORPORACION ECUATORIANA DE LICORES Y ALIMENTOS S.A.",
+        "nombre_completo": "CORPORACION ECUATORIANA DE LICORES Y ALIMENTOS S.A",
         "nombre_comercial": "CELYASA"
     },
     {
-        "nombre_completo": "PLASTIAZUAY S.A.",
-        "nombre_comercial": "PLASTIAZUAY S.A."
+        "nombre_completo": "PLASTIAZUAY ",
+        "nombre_comercial": "PLASTIAZUAY S.A"
     },
     {
-        "nombre_completo": "HOSPITAL DEL RIO HOSPIRIO S.A.",
-        "nombre_comercial": "HOSPITAL DEL RIO HOSPIRIO S.A."
+        "nombre_completo": "HOSPITAL DEL RIO HOSPIRIO ",
+        "nombre_comercial": "HOSPITAL DEL RIO HOSPIRIO S.A"
     },
     {
-        "nombre_completo": "VIÑA OCUCAJE S.A.",
-        "nombre_comercial": "VIÑA OCUCAJE S.A."
+        "nombre_completo": "VIÑA OCUCAJE ",
+        "nombre_comercial": "VIÑA OCUCAJE S.A"
     },
     {
-        "nombre_completo": "DISTRIBUIDORA DE MOTOCICLETAS MOTDIS S.A.",
+        "nombre_completo": "DISTRIBUIDORA DE MOTOCICLETAS MOTDIS",
         "nombre_comercial": "MOTDIS"
     },
     {
-        "nombre_completo": "AEKIA S.A.",
+        "nombre_completo": "AEKIA",
         "nombre_comercial": "KIA"
     },
     {
-        "nombre_completo": "ASIAUTO S.A.",
+        "nombre_completo": "ASIAUTO ",
         "nombre_comercial": "KIA MOTORS"
     },
     {
-        "nombre_completo": "AYMESA S.A.",
-        "nombre_comercial": "AYMESA S.A."
+        "nombre_completo": "AYMESA ",
+        "nombre_comercial": "AYMESA S.A"
     },
     {
-        "nombre_completo": "EL CARRUSEL C LTDA",
+        "nombre_completo": "EL CARRUSEL",
         "nombre_comercial": "MUEBLES CARRUSEL"
     },
     {
@@ -398,31 +398,31 @@
         "nombre_comercial": "FRAGANLICOR CIA LTDA"
     },
     {
-        "nombre_completo": "INTERBORO TRANSPORT S.A",
+        "nombre_completo": "INTERBORO TRANSPORT",
         "nombre_comercial": "INTERBORO TRANSPORT SA"
     },
     {
-        "nombre_completo": "KMOTOR KMOT S.A.",
-        "nombre_comercial": "KMOTOR KMOT S.A."
+        "nombre_completo": "KMOTOR KMOT ",
+        "nombre_comercial": "KMOTOR KMOT S.A"
     },
     {
-        "nombre_completo": "LA CASA DEL ELECTRODOMESTICO ELECTROEXITO S.A.",
+        "nombre_completo": "LA CASA DEL ELECTRODOMESTICO ELECTROEXITO ",
         "nombre_comercial": "ELECTROEXITO"
     },
     {
-        "nombre_completo": "MARKETPRINT S.A.",
-        "nombre_comercial": "MARKETPRINT S.A."
+        "nombre_completo": "MARKETPRINT ",
+        "nombre_comercial": "MARKETPRINT S.A"
     },
     {
-        "nombre_completo": "SUNKOVA S.A",
+        "nombre_completo": "SUNKOVA ",
         "nombre_comercial": "WENDYS"
     },
     {
-        "nombre_completo": "GASVESUBIO EXPORT S.A.",
-        "nombre_comercial": "GASVESUBIO EXPORT S.A."
+        "nombre_completo": "GASVESUBIO EXPORT ",
+        "nombre_comercial": "GASVESUBIO EXPORT S.A"
     },
     {
-        "nombre_completo": "TELECUADOR CIA. LTDA.",
+        "nombre_completo": "TELECUADOR CIA. LTDA",
         "nombre_comercial": "TELECUADOR"
     },
     {
@@ -430,36 +430,36 @@
         "nombre_comercial": "KTM"
     },
     {
-        "nombre_completo": "TAPROOM S.A.",
+        "nombre_completo": "TAPROOM",
         "nombre_comercial": "TAPROOM"
     },
     {
-        "nombre_completo": "QUICKLINK S.A.S",
+        "nombre_completo": "QUICKLINK ",
         "nombre_comercial": "QUICKLINK"
     },
     {
-        "nombre_completo": "AUSTROBANK OVERSEAS (PANAMA) S.A.",
+        "nombre_completo": "AUSTROBANK OVERSEAS (PANAMA) ",
         "nombre_comercial": "AUSTROBANK"
     },
     {
-        "nombre_completo": "COCHEZ S.A.",
+        "nombre_completo": "COCHEZ",
         "nombre_comercial": "COCHEZ"
     },
     {
-        "nombre_completo": "SOLO MOTOS SOMOT S.A.",
+        "nombre_completo": "SOLO MOTOS SOMOT ",
         "nombre_comercial": "SOLO MOTOS"
     },
     {
-        "nombre_completo": "MOTOSMALL S.A.",
+        "nombre_completo": "MOTOSMALL ",
         "nombre_comercial": "MOTOS Y MOTOS"
     },
     {
-        "nombre_completo": "INTERNATIONAL PROFESSIONAL SERVICES INPSERCOM S.A.",
+        "nombre_completo": "INTERNATIONAL PROFESSIONAL SERVICES INPSERCOM ",
         "nombre_comercial": "INPSERCOM S.A."
     },
     {
-        "nombre_completo": "Portcoll S.A.",
-        "nombre_comercial": "Portcoll S.A."
+        "nombre_completo": "Portcoll ",
+        "nombre_comercial": "Portcoll S.A"
     },
     {
         "nombre_completo": "GESTION SEGURA AGENCIA ASESORA PRODUCTORA DE SEGUROS CIA LTDA",
@@ -470,27 +470,27 @@
         "nombre_comercial": "CONFIRMEZA"
     },
     {
-        "nombre_completo": "AGROPECUARIA AGRIELMAC S.A.",
-        "nombre_comercial": "AGRIELMAC S.A."
+        "nombre_completo": "AGROPECUARIA AGRIELMAC",
+        "nombre_comercial": "AGRIELMAC S.A"
     },
     {
-        "nombre_completo": "LA POSTA S.A",
+        "nombre_completo": "LA POSTA ",
         "nombre_comercial": "LA POSTA S.A"
     },
     {
-        "nombre_completo": "ALIANZA COMERCIAL DE SEGUROS LTDA.",
+        "nombre_completo": "ALIANZA COMERCIAL DE SEGUROS LTDA",
         "nombre_comercial": "ALIANZA COMERCIAL DE SEGUROS"
     },
     {
-        "nombre_completo": "SUDAMERICANA DE MOTOCICLETAS SUDMO S. A.",
-        "nombre_comercial": "SUDMO S. A."
+        "nombre_completo": "SUDAMERICANA DE MOTOCICLETAS SUDMO ",
+        "nombre_comercial": "SUDMO S. A"
     },
     {
-        "nombre_completo": "ANDICOAUDI S.A.",
+        "nombre_completo": "ANDICOAUDI",
         "nombre_comercial": "ANDICOAUDI"
     },
     {
-        "nombre_completo": "AUTOEASTERN S.A.",
+        "nombre_completo": "AUTOEASTERN ",
         "nombre_comercial": "AUTOEASTERN"
     },
     {
@@ -502,7 +502,7 @@
         "nombre_comercial": "ARTESA"
     },
     {
-        "nombre_completo": "PROVEEDORA NACIONAL DE EQUIPAMIENTO PRONAE S.A",
+        "nombre_completo": "PROVEEDORA NACIONAL DE EQUIPAMIENTO PRONAE",
         "nombre_comercial": "PRONAE S.A"
     },
     {
@@ -518,16 +518,16 @@
         "nombre_comercial": "DISTRIBUIDORA DEL PACÍFICO DEL PERÚ SAC"
     },
     {
-        "nombre_completo": "DISTRIBUIDORA JUAN ELJURI DEL PERÚ SA",
-        "nombre_comercial": "DISTRIBUIDORA JUAN ELJURI DEL PERÚ SA"
+        "nombre_completo": "DISTRIBUIDORA JUAN ELJURI DEL PERÚ ",
+        "nombre_comercial": "DISTRIBUIDORA JUAN ELJURI DEL PERÚ "
     },
     {
         "nombre_completo": "KMOTORS LAS DELICIAS, C.A",
         "nombre_comercial": "KMOTORS"
     },
     {
-        "nombre_completo": "Agricola Malteria de Altura Altimalta S.A.",
-        "nombre_comercial": "Altimalta S.A."
+        "nombre_completo": "Agricola Malteria de Altura Altimalta ",
+        "nombre_comercial": "Altimalta S.A"
     },
     {
         "nombre_completo": "Agricola del Pacifico Peru SAC",
@@ -546,15 +546,15 @@
         "nombre_comercial": "INTERNATIONAL GLOBAL BANK"
     },
     {
-        "nombre_completo": "PANAMA FINANCIERA S.A.",
+        "nombre_completo": "PANAMA FINANCIERA ",
         "nombre_comercial": "PANAMA FINANCIERA"
     },
     {
-        "nombre_completo": "IMESVAP S.A.S.",
-        "nombre_comercial": "IMESVAP S.A.S."
+        "nombre_completo": "IMESVAP S.A.S",
+        "nombre_comercial": "IMESVAP S.A.S"
     },
     {
-        "nombre_completo": "GINCRESPO FACTORY GCF S.A.S.",
+        "nombre_completo": "GINCRESPO FACTORY GCF S.A.S",
         "nombre_comercial": "GINCRESPO"
     },
     {
@@ -566,27 +566,27 @@
         "nombre_comercial": "AUTOFACIL"
     },
     {
-        "nombre_completo": "EMPRESA ADMINISTRADORA AUTOFAST S.A.",
-        "nombre_comercial": "AUTOFAST S.A."
+        "nombre_completo": "EMPRESA ADMINISTRADORA AUTOFAST",
+        "nombre_comercial": "AUTOFAST S.A"
     },
     {
         "nombre_completo": "ASESORIA ACTIVA ASEAC SAS",
         "nombre_comercial": "ASEAC"
     },
     {
-        "nombre_completo": "CENTRO DE GESTION UNIFICADA DE MOTOCICLETAS CEGUM S. A. S",
+        "nombre_completo": "CENTRO DE GESTION UNIFICADA DE MOTOCICLETAS CEGUM",
         "nombre_comercial": "CEGUM"
     },
     {
-        "nombre_completo": "LICORICE S.A.S.",
-        "nombre_comercial": "LICORICE S.A.S."
+        "nombre_completo": "LICORICE S.A.S",
+        "nombre_comercial": "LICORICE S.A.S"
     },
     {
         "nombre_completo": "QUICKLINK COLOMBIA SAS",
         "nombre_comercial": "QUICKLINK COLOMBIA"
     },
     {
-        "nombre_completo": "SOCELEC&MIRGOR COMPANY S.A.S.",
+        "nombre_completo": "SOCELEC&MIRGOR COMPANY S.A.S",
         "nombre_comercial": "SOCELEC&MIRGOR COMPANY"
     }
 

@@ -6,8 +6,8 @@ from langchain_chroma import Chroma
 embeddings = OpenAIEmbeddings()
 dir ="/app/VectorStore/Empresas"
 #dir ="VectorStore/Empresas"
-#ruta_archivo = r"/app/DocumentosRequeridos/empresas.txt"#/app/DocumentosRequeridos/empresas.txt"  # Asegúrate de que el archivo esté en formato JSON
-ruta_archivo = r"DocumentosRequeridos/empresas.txt"
+ruta_archivo = r"/app/DocumentosRequeridos/empresas.txt"#/app/DocumentosRequeridos/empresas.txt"  # Asegúrate de que el archivo esté en formato JSON
+#ruta_archivo = r"DocumentosRequeridos/empresas.txt"
 # Función para leer empresas desde un archivo JSON
 def leerEmpresas():
     with open(ruta_archivo, 'r', encoding='utf-8') as file:

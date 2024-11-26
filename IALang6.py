@@ -20,10 +20,10 @@ from dotenv import load_dotenv
 load_dotenv()
 dir_VSEjemplos="/app/VectorStore/Ejemplos"
 #dir_VSEjemplos="VectorStore/Ejemplos"
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2 ,top_p=0.1)
 
 # infomracion encuentras aqui  https://www.youtube.com/watch?v=fss6CrmQU2Y&t=2510s
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 os.environ["LANGCHAIN_TRACING_V2"]="true"
 os.environ["LANGCHAIN_API_KEY"]="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"
 os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
@@ -35,7 +35,7 @@ os.environ["LANGCHAIN_PROJECT"]="NL2SQL"
 def ObtenerDB():
     username = "dev_jhurtado" 
     password = "Pka12msE1b2qO%401"# "Pka12msE1b2qO@1" 
-    host = "192.168.193.5" #"10.124.0.5"#
+    host = "10.124.0.5"#"192.168.193.5" #"10.124.0.5"#
     port = "5432"
     mydatabase = "dbcorp"
     pg_uri = f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{mydatabase}"
@@ -51,7 +51,7 @@ def ejecutar_consulta(sql_query):
     try:
         # Conectarse a la base de datos PostgreSQL
         connection = psycopg2.connect(
-            host="192.168.193.5",#"10.124.0.5",
+            host="10.124.0.5",#"192.168.193.5",#"10.124.0.5"#
             port="5432",
             dbname="dbcorp",
             user='dev_jhurtado',
@@ -70,135 +70,6 @@ def ejecutar_consulta(sql_query):
     except Exception as error:
         print(f"Error al ejecutar la consulta: {error}")
         return None
-
-def devolver_Analisis(human_query,tabla):
-    print(tabla)
-    print(human_query)
-    #*Do not mention the SQL query  in your response
-    prompt2=f"""
-Assume the role of an expert financial data analyst with deep knowledge of SQL. Your goal is to **respond clearly and effectively** using the data obtained from an SQL query. The response must always be in JSON format, within the key "query_response".
-
-<<BEGIN CONTEXT>>
-giving the following data table:
-{tabla}
-
-<<END CONTEXT>>
-
-My query is as follow: {human_query}
-
-Before providing me with a response, carefully consider the following **OBSERVATIONS**:
-
- ***Analysis all the  column on the table and the values in there***
-
-1.**Analyze the rows of the *`Tipo Estado`* column in the table and select the values based on the following conditions:**
-    - ***If the value of *`Tipo Estado`* is 'ERI'***:
-        - **Do not** take into account the *`Saldo Mensual`* column.
-        - Exclusively extract the values from the *`Saldo Acumulado`* column.
-        - Respond based on those values and explicitly state that the amount corresponds to *'saldo acumulado (acumulado nacional)'*.
-    - ***If the value of *`Tipo Estado`* is 'ESF'***:
-       - **Do not** take into account the *`Saldo Acumulado`* column.
-       - Exclusively extract the values from the *`Saldo Mensual`* column.
-       - Respond based on those values and explicitly state that the amount corresponds to *'saldo mensual (mensual nacional)'*.\n\nReturn the results in *JSON* format, ensuring that the selected column and the type of balance are clearly indicated, and exclude any value from the column that does not correspond to the state type."
-
-
-   - Ensure the response clearly mentions whether the amount is based on *"saldo acumulado"* or *"saldo mensual"*, depending on the column from which the value was obtained.
-
-2. **Maintain the signs of the values**: Ensure that the *numeric values retain their original signs in your respond*.
-
-3. **Selection of the almacen**: If I do not mention a specific *almacen* in my query, use the data where `' Almacén Nombre'` is `'SIN ALMACEN'`.
-
-4. **Comparatives for 'Consolidado'**: If I mention *'consolidado'* in my question, perform a comparison between the values of both dates.dont forget to use the values choused in the first point.
-5. **Focus on 'balance general'**: When the query mentions *'balance general'*, concentrate specifically on the rows where the **`'nombre'`** is **`'ACTIVO'`**, **`'PASIVO'`**, or **`'PATRIMONIO'`**. Ensure you accurately utilize the values obtained in the first point. Your response should exclusively include the values for these categories without any additional commentary.
-6. **Focus for 'ERI'**: If I mention 'ERI', focus on the values of `'Saldo Acumulado'` for `'VENTAS NETAS'`, `'VENTAS BRUTAS'`, `'UTILIDAD BRUTA'`, `'GASTOS OPERACIONALES'`, and `'UTILIDAD NETA'`.
-7.**Perform the Calculation:**
-   - If you need to calculate any value, make sure to follow the appropriate *procedure*.
-   - Explain the *calculation process* clearly, including and mention  the specific *values* you used.
-   - Indicate the *formula* or *method* you applied to arrive at the final result.
-8.**Narrative respond**:
-    -Ensure the response is always in **narrative text** format, even when reporting multiple values. 
-
-"""
-    prompt3="""Your response MUST tu be in SPANISH and it should summarize the key findings in a conversational manner .Ensures that your respond be in a one string. For example:  
-    ```json
-    {
-        "query_response": "TU RESPUESTA....."
-    }
-    """
-
-    promptsystem="""Eres un experto en analítica de datos y ecommerces. Tu objetivo principal es tomar los datos obtenidos de una consulta de tu base de datos y analizarlos para responder la consulta del cliente. Además, debes seguir estas instrucciones adicionales para responder preguntas relacionadas con estados financieros:
-
-1. **Responde siempre usando emojis y flechas** para delimitar mejor tu mensaje, en lugar de usar saltos de línea.- Antes de responder, **identifica si el elemento solicitado pertenece al Balance General (Estado de Situación Financiera - ESF) o al Estado de Resultados Integral (ERI)**. 
-
-2. **Balance General (ESF)**: Cuando te consulte sobre 'balance general', 'Estado de Situación Financiera (ESF)' o cualquier elemento de este, enfócate principalmente en los siguientes componentes:
-   - **Activo**:
-     - Activo Corriente: Efectivo y Equivalentes de efectivo, Cuentas por cobrar CP, Otras cuentas por cobrar, Inventarios disponible para la venta, Inventarios en tránsito, Servicios y otros pagos anticipados, Activos por impuestos corrientes, Anticipos a Proveedores, Otros activos corrientes.
-     - Activo No Corriente: Propiedad, planta y equipo, (-) Depreciación Acumulada, Inversiones LP, Activos por derecho de uso, Otros activos no corrientes.
-   - **Pasivo**:
-     - Pasivo Corriente: Proveedores, Otras cuentas por pagar, Obligaciones con instituciones financieras CP, Provisiones, Administración Tributaria, I.E.S.S., Beneficios de Ley Empleados, Anticipos clientes, Otros pasivos corrientes.
-     - Pasivo No Corriente: Obligaciones con instituciones financieras LP, Cuentas por pagar diversas/Relacionadas, Provisiones por Beneficios de Ley Empleados, Pasivos por derecho de uso, Otros pasivos no corrientes.
-   - **Patrimonio**:
-     - Capital, Reservas, Resultados Acumulados, Resultados del Ejercicio.
-
-   Recuerda que el valor de **Activo**, **Pasivo** y **Patrimonio** ya representa la **suma de todos los valores** que lo componen. Al mencionar cualquiera de estos elementos, enfócate en proporcionar el valor de **'saldo mensual'**.
-
-3. **Estado de Resultados Integral (ERI)**: Al solicitar el **Estado de Pérdidas y Ganancias**, trátalo como una consulta sobre el **Estado de Resultados Integral (ERI)**. Los elementos clave del ERI son:
-   - **Ventas Netas**:
-     - Ventas Brutas, Descuentos.
-   - **Costo de Ventas**.
-   - **Utilidad Bruta**.
-   - **Gastos Operacionales**: Gastos Administrativos, Gastos Generales Adm, Sueldos y Salarios Adm, Gastos Ventas, Gastos Generales Ven, Sueldos y Salarios Ven, Gastos Publicidad, Gastos Generales Pub, Gastos Logística, Gastos Generales Log, Gastos Producción, Sueldos y Salarios Prod.
-   - **Utilidad Operacional**.
-   - **Otros No Operacionales**: Otros Gastos, Gastos Financieros, Otros Gastos No Operacionales, Otros Ingresos, Ingresos Financieros, Otros Ingresos No Operacionales.
-   - **Utilidad antes de Impuestos y Proyectos**, **Utilidad antes de Impuestos**, **Utilidad Neta**.
-
-   En cualquier consulta del ERI, proporciona los valores **acumulados** de estos elementos.
-
-4. **Terminología adicional**: Si se consulta sobre algún otro estado financiero, asegúrate de preguntar si la referencia es mensual o acumulada para dar una respuesta precisa.
-
-5. **Consolidación**: Si se menciona **'consolidado'**, realiza una **comparativa entre el valor solicitado con el del año anterior**. Asegúrate de destacar las diferencias clave en la respuesta.
-
-Tu objetivo es proporcionar información financiera clara y detallada, además de analizar los datos de e-commerce para satisfacer las necesidades del cliente."
-"""
-    
-    messages=[
-                {"role": "system", "content":promptsystem},
-                {"role": "user", "content": prompt2+prompt3}#promptRespuestaFinal}#prompt2}
-            ]
-    #print(messages)
-    #messages=VariosMensajes(result,messages)
-    try:
-        client = OpenAI(
-            # This is the default and can be omitted
-            #api_key='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'
-            api_key=os.environ.get("OPENAI_API_KEY"),
-        )
-        chat_completion = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
-            max_tokens=3000,
-            n=1,
-            stop=None,
-            temperature=0.4,
-        )
-        respuesta=chat_completion
-        descripcion = respuesta.choices[0].message.content
-        #print(descripcion)
-        descripcion=extract_json(descripcion)
-        #print(descripcion)
-        response_json = json.loads(descripcion)
-       # print("las condiciones son:"+str(response_json["Condiciones"]))
-        Queryresponse= response_json["query_response"]
-        #informe= response_json["informe"]
-        respuestaT=Queryresponse#+"\n"+informe
-        #print(Queryresponse)
-    except  BadRequestError as e:
-        if "maximum context length" in str(e):
-            #Queryresponse=devolver_AnalisisLargo(result,human_query,SQL_query)
-            respuestaT="La información que desea consultar es muy extensa como para mostrártela por este medio. Por favor, delimite mejor su consulta."
-        else:
-            raise  # Puedes seguir manejando otros errores aquí si es necesario
-
-    return respuestaT
 
 # Función para verificar y extraer la consulta SQL del texto
 def extract_sql(text):
@@ -249,6 +120,25 @@ Instrucciones:
    - Utiliza los *mismos filtros* de los ejemplos siempre que la solicitud del usuario sea similar.
    -**Obten todas las **columnas de salida**Parte del SELECT** en los ejemplos  y UTILIZALAS EN TU CONSULTA. **No OMITAS NINGUNA COLUMNA**, incluso si parecen irrelevantes para la nueva consulta.***NO UTILIZAR NINGUNA COLUMNA QUE NO ESTE EN LOS EJEMPLOS ***.
    -**INCLUIR SIEMPRE** **'sal_nombre'**y **'sal_tipo_estado'** en el  **las Columnas de salida **de tu consulta SQL.
+   -Las cuentas del Balace generalo ESF  son: 
+   **Activo**: Activo Corriente: Efectivo y Equivalentes de efectivo, Cuentas por cobrar CP, Otras cuentas por cobrar, Inventarios disponible para la venta, Inventarios en tránsito, Servicios y otros pagos anticipados, Activos por impuestos corrientes, Anticipos a Proveedores, Otros activos corrientes.
+     Activo No Corriente: Propiedad, planta y equipo, (-) Depreciación Acumulada, Inversiones LP, Activos por derecho de uso, Otros activos no corrientes.
+   **Pasivo**:
+      Pasivo Corriente: Proveedores, Otras cuentas por pagar, Obligaciones con instituciones financieras CP, Provisiones, Administración Tributaria, I.E.S.S., Beneficios de Ley Empleados, Anticipos clientes, Otros pasivos corrientes.
+      Pasivo No Corriente: Obligaciones con instituciones financieras LP, Cuentas por pagar diversas/Relacionadas, Provisiones por Beneficios de Ley Empleados, Pasivos por derecho de uso, Otros pasivos no corrientes.
+    **Patrimonio**:
+      Capital, Reservas, Resultados Acumulados, Resultados del Ejercicio.
+
+--***Indentifica la cuenta solicitada y utiliza  la columna usa la columna sal_tipo_estado='ERI'**  con las cuentas del  **Estado de Resultados Integral (ERI)**:
+   **Ventas Netas**:
+      Ventas Brutas, Descuentos.
+   **Costo de Ventas**.
+   **Utilidad Bruta**.
+   **Gastos Operacionales**: Gastos Administrativos, Gastos Generales Adm, Sueldos y Salarios Adm, Gastos Ventas, Gastos Generales Ven, Sueldos y Salarios Ven, Gastos Publicidad, Gastos Generales Pub, Gastos Logística, Gastos Generales Log, Gastos Producción, Sueldos y Salarios Prod.
+   **Utilidad Operacional**.
+   **Otros No Operacionales**: Otros Gastos, Gastos Financieros, Otros Gastos No Operacionales, Otros Ingresos, Ingresos Financieros, Otros Ingresos No Operacionales.
+   **Utilidad antes de Impuestos y Proyectos**, **Utilidad antes de Impuestos**, **Utilidad Neta**.
+
 2.  **Filtros,Columnas y condiciones obligatorias:**
    - **Debes incluir siempre** `sal_tipo=1` en **todas** tus consultas SQL.
    - Si la consulta **menciona explícitamente** 'presupuesto', usa el valor `2` para `sal_tipo`.
@@ -256,10 +146,27 @@ Instrucciones:
     - Si la consulta **menciona explícitamente** 'pasivo total'* buscalo solo como'Pasivo'* en tu consulta.
    - Si la consulta **menciona explícitamente** 'ERI' o 'estado de resultados integrales', incluye la columna `sal_tipo_estado` con el valor `'ERI'` en mayúsculas y incluye la columna sal_tipo_emp en el SELECT.
    - Si la consulta **menciona explícitamente** 'ESF', 'estado de situación financiera' o 'balance general', incluye la columna `sal_tipo_estado` con el valor `'ESF'` en mayúsculas y incluye la columna sal_tipo_emp en el SELECT.
-   - ** LA Consulta  DEL CLIENTE MENCIONA la palabra **CONSOLIDADO**: Si la consulta incluye la palabra **consolidado**, realiza una **única consulta** que obtenga los ***datos para la fecha solicitada y para un año antes*** mediante ** sal_periodo IN ('año Actual', 'Año anterior')**, filtrando ambos periodos en la misma consulta.
    -**Nunca te inventes valores o respuestas que no esten dentro de la inofrmacion o que puedas calcular.
    ** si se realiza algun calculo explicalo detalladamente.
-   
+
+3.**Validar el nombre de las cuentas a buscar**: 
+    -**Indentifica si la cuenta solicitada por el usuario  hace referencia a alguna de la siguiente lista:**
+        Gastos Generales Adm
+        Sueldos y Salarios Adm
+        Gastos Ventas
+        Gastos Generales Ven
+        Sueldos y Salarios Ven
+        Gastos Publicidad
+        Gastos Generales Pub
+        Gastos Logística
+        Gastos Generales Log
+        Gastos Producción
+        Sueldos y Salarios Prod
+    -** si hace referencia a alguna de estas cuentas, utiliza el nombre dado de la lista para la columna sal_nombre**
+    IMPORTANTE: al usar el nombre de la lista  tambien debes incluir  ILIKE '%nombre lista %';
+
+            
+
 4. **Tratamiento de marcas diacríticas (acentos):**
    - Si en la consulta del usuario hay palabras con marcas diacríticas (como acentos), elimina dichas marcas al procesar la solicitud.
 5. **Uso del esquema de la tabla:**
@@ -269,12 +176,16 @@ Instrucciones:
    - Escribe una consulta SQL en PostgreSQL que recupere la información solicitada utilizando **solo** los nombres de columnas proporcionados en los ejemplos y ***tomando en cuenta todos los pasos anteriores.***
    - No añadas ni asumas ninguna condición, nombres de columnas o valores que no hayan sido mencionados explícitamente por el usuario.
    -**No te Inventes COLUMNAS**
+   -**No cambies de nombres a las columnas a menos que sean sumas**
    -**Siempre selecionar las columnas ** sal_valor_nac** , **sal_acumulado_nac** ,**Sal_tipo_estado**en tu consulta.**
+   para la busqueda de la cuenta (columna sal_nombre) has una busqueda insesible a mayuscualas y minusculas ***siempre*** usa  ILIKE '%...%';
+
 
 7. **Salida de la consulta:**
    - La salida de la IA debe ser **solo el texto de la consulta SQL dentro de las marcas ```sql** sin ningún tipo de formato adicional, comentarios, bloques de código o caracteres especiales . 
    - **Es fundamental que la respuesta final sea exclusivamente la consulta SQL, optimizada y lista para ejecutarse en PostgreSQL, sin ninguna información adicional.**
 8.***RESPUESTA FINAL: la salida de la consulta.***
+
 Aquí está la información relevante de la tabla:
 
     """
@@ -611,7 +522,7 @@ def borrar():
         #print ("lista de empresas:"+Empresas)
         #print(ExtaerNombre(consulta,Empresas))
         print("--------------------------------------------")  # Aquí puedes modificar para ejecutar la consulta en tu base de datos en lugar de solo imprimirla.
-consulta = " dame el   valor de activo de mayo 2024 de  KTM pero acumulado"
+#consulta = "DAME UNA TABLA CON LA SUMA TOTAL DE LAS VENTAS NETAS DE CADA EMPRESA DEL MES DE MARZO DEL AÑO 2024 "
 
 #print(NL2SQL(consulta,1,1,""))
 #borrar()

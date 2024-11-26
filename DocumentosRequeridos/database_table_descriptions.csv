@@ -1,3 +1,2 @@
 Table;Description
 eeff_saldos_ebi_v ;Contiene información clave para la gestión de saldos y estados financieros de una empresa, incluyendo cuentas como activos, pasivos, ingresos y gastos. Cada registro está asociado a un período específico (año y mes) y puede representar tanto saldos reales como presupuestos. La tabla maneja tanto valores en dólares estadounidenses como en la moneda local de la empresa, además de almacenar saldos acumulados. También incluye información sobre el tipo de estado financiero (balance general o estado de resultados integrales), así como detalles sobre la empresa, sector, centros de costos y almacenes. Las jerarquías contables y los identificadores asociados permiten una segmentación precisa para el análisis financiero.
-
