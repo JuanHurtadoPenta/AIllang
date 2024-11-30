@@ -7,13 +7,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain.chains import create_sql_query_chain
 from operator import itemgetter
-from DinamicEmpresa import ObtenerEmpresa,vectorestore#no mover el orden de la importacion
-from TablasDinamicas import GetTablasSellecionadas
-from DinamicEjemplosChroma1 import GetEjemploPrompt
 from langchain_openai import ChatOpenAI
 import re
 from PosgressJega import add_question,add_response,add_sql_query,add_response_id
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 
 from dotenv import load_dotenv
 def extract_json(text):
@@ -33,87 +30,92 @@ def extract_json(text):
     
     # Si no se encuentra JSON, retornar el texto limpio después de SQLQuery
     return text
-def ExtraerNombreIA(human_query):
-    nombre=None
-    print(human_query)
-    #*Do not mention the SQL query  in your response
-    prompt2=f"""
-    dada la siguiente frase:
-    {human_query}
-    cual es el nombre de la empresa( debe ser una palabra completa ):
-    ***Siempre**respondeme en formato json con la clave "Nombre" y si no logras indentificar el nombre ,dentro de clave pon none***
-    ejemplo de respuesta:"""
-    prompt3=""""
+def  ExtaerNombreKPI(human_query):
+    promptNombres = f"""
+   Eres un asistente experto en detección y corrección de nombres de indicadores financieros.
+
+**Objetivo**:  
+Los usuarios hacen consultas sobre KPI o indicadores financieros, pero no saben cómo están guardados exactamente estos nombres en nuestra lista oficial. Tu tarea es:  
+1. Identificar si la consulta del usuario hace referencia a algún KPI de la lista oficial.  
+2. Si encuentras un KPI coincidente, **reescribe toda la pregunta del usuario**, reemplazando el nombre del KPI mencionado por el **nombre exacto** de la lista oficial.  
+3. Si no encuentras ningún KPI coincidente, devuelve la pregunta original sin cambios.  
+
+**Pregunta del usuario**:  
+"{human_query}"  
+
+**Lista oficial de indicadores o KPI**:  
+1. Ciclo de efectivo ($ día)  
+2. Apalancamiento Patrimonio  
+3. Capital Neto de Trabajo  
+4. % Utilidad Operacional  
+5. Rotación Inventarios  
+6. % Gastos de Logística  
+7. Liquidez Corriente  
+8. % Utilidad Neta  
+9. Rotación cuentas por pagar  
+10. % Gastos Administrativos  
+11. Prueba Ácida  
+12. % Costo de Venta  
+13. % Margen Bruto  
+14. % Gastos de Ventas  
+15. ROA  
+16. Ciclo de efectivo (días)  
+17. Período medio de cobro  
+18. ROE (Duppont)  
+19. % Gastos No Operacionales  
+20. % EBITDA  
+21. % Gastos de Publicidad  
+22. Días de Inventario (días)  
+23. Capital Invertido  
+24. % Gastos Operacionales  
+25. Deuda/Ebitda  
+26. Razón Endeudamiento  
+27. Cobertura Intereses  
+28. Período medio de pago (días)  
+29. % Venta Neta  
+30. Rotación Cartera  
+
+
+
+**Reglas estrictas para tu respuesta**:  
+1. Tu respuesta siempre debe devolver la **pregunta completa** en formato JSON, dentro de una clave llamada `nombre`.  
+2. No respondas con solo el nombre del KPI.  
+3. Si corregiste el nombre del KPI, asegúrate de integrarlo correctamente en el contexto de la pregunta original.  
+4. Si no hay coincidencia, devuelve la pregunta original sin cambios.  
+
+**Formato esperado de salida**:  
+Tu respuesta debe estar en formato JSON con una sola clave `nombre`, que contenga la pregunta completa como un string unico  
+
+**Ejemplo de entrada y salida**:  
+
+
+    Ejemplo:
+    Entrada:
+    Pregunta: "¿Cuál es el período medio de cobros de los meses del año 2023 de la empresa KTM?"
+
+    Salida esperada:
+    """
+
+    promptNombres2=""" 
     ```json
     {
-    "Nombre": "inmot"
+        "nombre": "¿Cuál es el Período medio de cobro de los meses del año 2023 de la empresa KTM?"
     }
+
+    Salida Incorrecta:
     ```json
     {
-    "Nombre": "none"
-    }"""
-    
-    messages=[
-                {"role": "system", "content": " Eres experto extrayendo infomracion de frases ."},
-                {"role": "user", "content": prompt2 +prompt3}#promptRespuestaFinal}#prompt2}
-            ]
-    #print(messages)
-    #messages=VariosMensajes(result,messages)
-    try:
-        client = OpenAI(
-            # This is the default and can be omitted
-            #api_key='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'
-            api_key=os.environ.get("OPENAI_API_KEY"),
-        )
-        chat_completion = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=messages,
-            max_tokens=3000,
-            n=1,
-            stop=None,
-            temperature=0.2,
-        )
-        respuesta=chat_completion
-        descripcion = respuesta.choices[0].message.content
-        print(descripcion)
-        descripcion=extract_json(descripcion)
-        print(descripcion)
-        response_json = json.loads(descripcion)
-       # print("las condiciones son:"+str(response_json["Condiciones"]))
-        Queryresponse= response_json["Nombre"]
-        #informe= response_json["informe"]
-        nombre=Queryresponse#+"\n"+informe
-    except  BadRequestError as e:
-            nombre=None # Puedes seguir manejando otros errores aquí si es necesario
-    return nombre
-
-def ExtaerNombre(human_query):
-    human_query=human_query.lower()
-    nombre_empresas_ai=ExtraerNombreIA(human_query)
-    nombre_empresas=ObtenerEmpresa1(nombre_empresas_ai)
-    if nombre_empresas is None:
-        return human_query
-    nombre_empresas=nombre_empresas.lower()
-    print(nombre_empresas)
-    #*Do not mention the SQL query  in your response
-    promptNombres=f"""
-
-Dada la siguiente pregunta: "{human_query}", extrae el nombre de la empresa y compáralo con los nombres comerciales de la siguiente lista: {nombre_empresas}. 
-Asegúrate de que la comparación sea correcta, siguiendo estos pasos:
-1. Si encuentras una **coincidencia exacta** sin importar mayusculas o minusculas, responde con la pregunta original, pero reemplaza el nombre comercial con el nombre completo de la empresa correspondiente.
-2. Si no hay coincidencia exacta, devuelve la pregunta original sin cambios.
-Devuelve tu respuesta en formato JSON con la clave "nombre".
-"""
+        "nombre": " Período medio de cobro (días)"
+    }
+    """
 
     #print(promptNombres)
 
     
     messages=[
-                {"role": "system", "content": "Eres experto en analizar preguntas y extraer infomracion de ellas ."},
-                {"role": "user", "content": promptNombres}#promptRespuestaFinal}#prompt2}
+                {"role": "system", "content": "Eres experto en analizar preguntas ycorreguir infomracion ."},
+                {"role": "user", "content": promptNombres+promptNombres2}#promptRespuestaFinal}#prompt2}
             ]
-    #print(messages)
-    #messages=VariosMensajes(result,messages)
     try:
         client = OpenAI(
             # This is the default and can be omitted
@@ -123,10 +125,10 @@ Devuelve tu respuesta en formato JSON con la clave "nombre".
         chat_completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
-            max_tokens=400,
+            max_tokens=500,
             n=1,
             stop=None,
-            temperature=0.1,
+            temperature=0.2,
         )
         respuesta1=chat_completion
         descripcion1 = respuesta1.choices[0].message.content
@@ -136,6 +138,8 @@ Devuelve tu respuesta en formato JSON con la clave "nombre".
         response_json1 = json.loads(descripcion1)
        # print("las condiciones son:"+str(response_json["Condiciones"]))
         Queryresponse= response_json1["nombre"]
+        Queryresponse = Queryresponse.replace("('", "").replace("',)", "")
+
         print("ultima respuesta"+str(Queryresponse))
         #informe= response_json["informe"]
         if Queryresponse==None:
@@ -148,63 +152,11 @@ Devuelve tu respuesta en formato JSON con la clave "nombre".
             nombre=Queryresponse#+"\n"+informe
         #print(Queryresponse)
     except  BadRequestError as e:
+            print(e)
             #Queryresponse=devolver_AnalisisLargo(result,human_query,SQL_query)
             nombre="No se pudo obtener nombre empresa"
 
     return nombre
-def borrar():
-    consultas = [
-          " dame el   valor de activo de mayo 2024 de  bajaj",
-    " quiero el consolidado de ventas brutas de la empresa indumot para febrero 2023",
-    "Cual es el ERI de  royal motors para marzo 2024",
-    "Quiero el valor EBITDA de  toscana para enero 2024 ",
-    "Cual es el valor de Activo Corriente  de Aje Licores en el mes de febrero 2024",
-    "Dame el valor de ventas brutas para   KTM de junio 2024",
-    "Cual es  balance general de  inmot para febrero 2023.",
-    "dame la diferencia de ventas netas del mes de enero de los años 2023 y 2024 de innmot",
-    "dame la diferencia de ventas netas del mes de enero de los años 2023 y 2024 de kawasaki",
-    "dame la diferencia de ventas netas del mes de enero de los años 2023 y 2024 de  la taberna"
-    ]
-
-    # Ejecutar la función para cada consulta
-    for consulta in consultas:
-        print(ExtaerNombre(consulta))
-        #Empresas=ObtenerEmpresa(consulta)
-        #print ("lista de empresas:"+Empresas)
-        #print(ExtaerNombre(consulta,Empresas))
-        print("--------------------------------------------")  # Aquí puedes modificar para ejecutar la consulta en tu base de datos en lugar de solo imprimirla.
-def ObtenerEmpresa1(query):
-    # Carga la información en el vector store
-    #vector_store = CargarInfoVS()
-    vector_store=vectorestore()
-    # Realiza una búsqueda de similitu
-    #print(query)
-    results = vector_store.similarity_search_with_score(query, k=1)  # Cambia 'k' según el número de resultados que quieras obtener
-    
-    #print(results)# Inicializa una variable para almacenar todos los resultados concatenados
-    resultados = []
-    total=[]
-    # Itera a través de todos los resultados y agrega cada uno a la lista
-    for documento in results:
-        res,b=documento
-        resultado = f"* Nombre comercial: {res.page_content}, Nombre Completo: {res.metadata['id']}"
-        resultados.append(resultado)
-        total.append(b)
-    print(total)
-    #print(resultados)
-    coind=False
-    for a in total:
-        #print(a)
-        if float(a)<=0.25:
-            coind=True
-    
-    if coind==True:
-    # Une todos los resultados en una sola cadena con salto de línea
-        resultado_final = "\n".join(resultados)
-        #print(resultado_final)
-        return resultado_final
-    else: return None
-
-
-borrar()
+human_query="valor de gastos de logistica de la empresa almacenes juan eljuri para mayo 2024",
+print(ExtaerNombreKPI(human_query))
 

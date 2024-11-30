@@ -29,11 +29,15 @@
     },
     {
         "input": "Consultar las UTILIDAD OPERACIONAL del año 2024",
-        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad operacional%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad operacional%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
+    },
+    {
+        "input": "Consultar las UTILIDAD OPERACIONAL del año 2024 el valor mensual",
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado,SUM(sal_valor_nac) AS sal_valor_nac, SUM(sal_valor_ext) AS sal_valor_ext,  SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE sal_periodo = 2024 AND lower(sal_nombre) LIKE '%utilidad operacional%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Consultar las OTROS NO OPERACIONALES del año 2024 para la empresa inmot de febrero",
-        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector, sal_alm_nombre FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 2 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%otros no operacionales%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector, sal_alm_nombre"
+        "query": "SELECT sal_periodo, sal_nombre, sal_tipo_estado, SUM(sal_acumulado_nac) AS sal_acumulado_nac, SUM(sal_acumulado_ext) AS sal_acumulado_ext, sal_sector FROM eeff_saldos_ebi_v WHERE lower(sal_nombre_emp) LIKE '%inmot%' AND sal_mes = 2 AND sal_periodo = 2024 AND lower(sal_nombre) LIKE '%otros no operacionales%' AND sal_tipo = 1 GROUP BY sal_periodo, sal_nombre, sal_tipo_estado, sal_sector"
     },
     {
         "input": "Consultar las UTILIDAD ANTES DE IMPUESTOS Y PROYECTOS del año 2024.",

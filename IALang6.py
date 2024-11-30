@@ -23,7 +23,7 @@ dir_VSEjemplos="/app/VectorStore/Ejemplos"
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2 ,top_p=0.1)
 
 # infomracion encuentras aqui  https://www.youtube.com/watch?v=fss6CrmQU2Y&t=2510s
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 os.environ["LANGCHAIN_TRACING_V2"]="true"
 os.environ["LANGCHAIN_API_KEY"]="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"
 os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
@@ -235,7 +235,7 @@ Aquí está la información relevante de la tabla:
         print(QuerySQL_new)
         print(resultado)
         if not resultado:
-            QueryResponse="Para poder darte una respuesta adecuada, por favor proporciona más detalles o verifica la información que me estas solicitando consultando."
+            QueryResponse="Para poder darte una respuesta adecuada sobre el 'ESTADO FINACIERO', por favor proporciona más detalles o verifica la información que me estas solicitando consultando."
         else:
             tabla=tabla_string(QuerySQL,resultado)
             filtros=extraer_filtros(QuerySQL)

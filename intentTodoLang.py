@@ -18,8 +18,8 @@ from dotenv import load_dotenv
 # Ignorar todos los DeprecationWarning
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
-#dir_VSEjemplos="/app/VectorStore/Ejemplos"
-dir_VSEjemplos="VectorStore/Ejemplos"
+dir_VSEjemplos="/app/VectorStore/Ejemplos"
+#dir_VSEjemplos="VectorStore/Ejemplos"
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2 ,top_p=0.1)
 
 # infomracion encuentras aqui  https://www.youtube.com/watch?v=fss6CrmQU2Y&t=2510s
@@ -35,7 +35,7 @@ os.environ["LANGCHAIN_PROJECT"]="NL2SQL"
 def ObtenerDB():
     username = "dev_jhurtado" 
     password = "Pka12msE1b2qO%401"# "Pka12msE1b2qO@1" 
-    host = "192.168.193.5" #"10.124.0.5"#
+    host = "10.124.0.5"#"192.168.193.5" #"10.124.0.5"#
     port = "5432"
     mydatabase = "dbcorp"
     pg_uri = f"postgresql+psycopg2://{username}:{password}@{host}:{port}/{mydatabase}"
@@ -52,7 +52,7 @@ def ejecutar_consulta(sql_query):
     try:
         # Conectarse a la base de datos PostgreSQL
         connection = psycopg2.connect(
-            host="192.168.193.5",#"10.124.0.5"#
+            host="10.124.0.5",#"192.168.193.5",#"10.124.0.5",#
             port="5432",
             dbname="dbcorp",
             user='dev_jhurtado',

@@ -180,4 +180,4 @@ def GetEjemploPromptKPIS(query):
 ##########################
 # para crear una nueva base de ejmplos, borra la carpeta ejemplos y ejecuta los siguitnetes comandos
 human_query="dame el   valor de activo de mayo 2024 de la empresa KTM"
-Empresas=GetEjemploPrompt(human_query)
+#Empresas=GetEjemploPrompt(human_query)
